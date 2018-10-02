@@ -16,7 +16,9 @@ public class MainApplication {
         if ( argc.length > 0 )
             N = Integer.parseInt(argc[0]);
         Board queens = new Board(N);
-        queens.solve();
+        boolean solved = queens.solve();
+        if ( !solved )
+            System.out.println("No Solutions Found....");
 
 
 

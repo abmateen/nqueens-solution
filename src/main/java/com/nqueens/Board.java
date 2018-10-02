@@ -19,6 +19,10 @@ public class Board {
 
     }
 
+    public void clear(){
+        init();
+    }
+
     // init default empty board
     private void init(){
         for ( int i=0; i<board.rowSize(); i++)
@@ -60,7 +64,7 @@ public class Board {
 
         for ( int i=row, j=col; j >=0 && i < board.rowSize(); i++, j--){
             if (board.get(i, j) == true) {
-                return false;
+                return false; // there is conflict
             }
         }
         return true;
@@ -70,7 +74,8 @@ public class Board {
     public boolean checkUpperDiagonal(int row, int col){
         for ( int i=row, j=col; i >= 0 && j >= 0; i--, j--){
             if ( board.get(i, j) == true){
-                return false;
+
+                return false; // there is conflict
             }
         }
         return true;
