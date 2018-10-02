@@ -1,0 +1,31 @@
+group 'com.nqueens'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+
+
+mainClassName = "com.nqueens.MainApplication"
+
+task runProgram(type: JavaExec) {
+    if ( project.hasProperty("N") ) {
+        println("Passing value " + N);
+        args(N);
+    }
+}
+
+run {
+    if (project.hasProperty("N")) {
+        println(N)
+        args Eval.me(N)
+    }
+}
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+}
